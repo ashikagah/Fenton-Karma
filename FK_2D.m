@@ -28,7 +28,7 @@ w = ones(nrows,ncols);
 
 %% Constants
 
-% Parameter set 6b in Fenton 2002 paper
+% Parameter set 6b in 2002_FentonFH_Chaos.pdf
 Cm = 1; % Capacitance (uF_per_cm2)
 % V_0 = -85; % Baseline potetial (mV)
 % V_fi = 15; % Peak potential (mV)
@@ -141,7 +141,7 @@ end
 Vts(:,:,1:floor(Ts/si)) = [];
 
 % Save the time series data
-save mech04_00_90.mat Vts -v7.3; % large size data (7.5GB)
+%save mech04_00_90.mat Vts -v7.3; % large size data (7.5GB)
 
 % Make a movie
 k = 100; % grid size - change this parameter for k=30, k=15, k=8 and k=4
@@ -164,7 +164,7 @@ for frame=1:500 % only first 5 seconds (size<10MB)
         k = k + 1;
     end
 end
-writerObj = VideoWriter(['mech04_00_05.avi'],'Motion JPEG AVI');
+writerObj = VideoWriter(['FK2D_00_05.avi'],'Motion JPEG AVI');
 writerObj.FrameRate = 20;
 open(writerObj);
 writeVideo(writerObj,mov);
@@ -173,20 +173,20 @@ close all
 clear mov
 
 %% long, high-res movie to make sure spirals persist
-figure;
-i0 = zeros(size(Vts(:,:,1)));
-ih = imagesc(i0(:,:,1)); caxis([0 1]);
-colormap(lce); axis image off; colorbar
-set(gcf,'position',[500 600 512 512],'color',[1 1 1]);
-for frame=1:size(Vts,3) % only first 5 seconds (size<10MB)
-    set(ih,'cdata',Vts(:,:,frame));
-    drawnow
-    mov(frame) = getframe;
-end
-writerObj = VideoWriter(['mech04_00_90.avi'],'Motion JPEG AVI');
-writerObj.FrameRate = 20;
-open(writerObj);
-writeVideo(writerObj,mov);
-close(writerObj);
+%figure;
+%i0 = zeros(size(Vts(:,:,1)));
+%ih = imagesc(i0(:,:,1)); caxis([0 1]);
+%colormap(lce); axis image off; colorbar
+%set(gcf,'position',[500 600 512 512],'color',[1 1 1]);
+%for frame=1:size(Vts,3) % only first 5 seconds (size<10MB)
+%    set(ih,'cdata',Vts(:,:,frame));
+%    drawnow
+%    mov(frame) = getframe;
+%end
+%writerObj = VideoWriter(['mech04_00_90.avi'],'Motion JPEG AVI');
+%writerObj.FrameRate = 20;
+%open(writerObj);
+%writeVideo(writerObj,mov);
+%close(writerObj);
 
 toc
