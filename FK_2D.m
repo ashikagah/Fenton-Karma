@@ -1,3 +1,11 @@
+%       ***************************************************
+%       *  Copyright (C) 2017, Hiroshi Ashikaga, MD, PhD  *
+%       *  hashika1@jhmi.edu                              *
+%       *  Cariac Arrhythmia Service                      *
+%       *  Johns Hopkins University School of Medicine    *
+%       *  Baltimore, Maryland, USA                       *
+%       ***************************************************
+
 %% Fenton-Karma Model - parameter set 06 - mech 4
 
 tic
