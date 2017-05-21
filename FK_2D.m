@@ -1,7 +1,7 @@
 %       ***************************************************
 %       *  Copyright (C) 2017, Hiroshi Ashikaga, MD, PhD  *
 %       *  hashika1@jhmi.edu                              *
-%       *  Cariac Arrhythmia Service                      *
+%       *  Cardiac Arrhythmia Service                     *
 %       *  Johns Hopkins University School of Medicine    *
 %       *  Baltimore, Maryland, USA                       *
 %       ***************************************************
