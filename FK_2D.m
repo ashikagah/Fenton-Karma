@@ -88,8 +88,8 @@ for t = 1:numel(T)
     if t == n2b; iex(nrows/2:nrows/2+10,1:end/2)=Iex; end % Begin 2nd stimulus
     if t == n2e; iex=zeros(nrows,ncols); end % End 2nd stimulus
     
-%%%%%%%%%%%%%%%%% FK Main %%%%%%%%%%%%%%%%%
-    % Create padded v matrix to incorporate Neuman boundary conditions 
+%%%%%%%%%%%%%%%%%         FK Main         %%%%%%%%%%%%%%%%%
+    % Padded v matrix for Neuman boundary conditions 
     VV=[[0 V(2,:) 0];[V(:,2) V V(:,end-1)];[0 V(end-1,:) 0]];
  
     %% Algebraic variables
@@ -103,13 +103,13 @@ for t = 1:numel(T)
 
     %% Rate variables
  
-    % du/dt (dimensionless)
+    % dV/dt (dimensionless)
     Vxx = (VV(2:end-1,1:end-2) + VV(2:end-1,3:end) -2*V)/h2; 
     Vyy = (VV(1:end-2,2:end-1) + VV(3:end,2:end-1) -2*V)/h2;    
     Vdot =  - (J_fi + J_so + J_si + iex) + Dx * Vxx + Dy * Vyy;
     V_new = V + Vdot * dt;
 
-    % dv/dt v fast_inward_current_v_gate (dimensionless)
+    % du/dt u fast_inward_current_u_gate (dimensionless)
     udot = ((1 - p).*(1 - u)./tau_v_minus) - (p.*u)/tau_v_plus;
     u_new = u + udot * dt;
     
