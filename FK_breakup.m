@@ -114,12 +114,11 @@ for t = 1:numel(T)
     u = u_new; clear u_new;
     w = w_new; clear w_new;
     
-        
     % Downsample to create output matrix
     if rem(t,si) == 0
         l = floor(t/si);
         ts(:,:,l) = V;
-        fprintf('%.02f percent completed ...\n',100*l/floor(numel(T)/si));
+        fprintf('%1.0f percent completed ...\n',100*l/floor(numel(T)/si));
     end
 end
 
