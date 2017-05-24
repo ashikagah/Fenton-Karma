@@ -64,11 +64,11 @@ iex(:,end-10:end) = Iex;
 % Output matrix
 ts = zeros(ncols,nrows,floor(numel(T)/si));
 
-% Setup image
-V0 = ones(nrows,ncols);
-ih = imagesc(V0); colorbar; caxis([0 1]);
-colormap(lce); axis image off; th=title('');
-set(gcf,'position',[500 600 512 512],'color',[1 1 1]);
+% % Setup image
+% V0 = ones(nrows,ncols);
+% ih = imagesc(V0); colorbar; caxis([0 1]);
+% colormap(lce); axis image off; th=title('');
+% set(gcf,'position',[500 600 512 512],'color',[1 1 1]);
 
 % s1-s2 stimulation to induce spiral waves
 Ts = 3400;
@@ -119,11 +119,10 @@ for t = 1:numel(T)
     u = u_new; clear u_new;
     w = w_new; clear w_new;
    
-        % Update image and text 
-    % Vm = V_0 + u*(V_fi - V_0); % membrane potential (mV)
-    set(ih,'cdata',V);
-    set(th,'string',sprintf('%0.3f',T(t)/1000)); % in sec
-    drawnow
+%     % Update image and text 
+%     set(ih,'cdata',V);
+%     set(th,'string',sprintf('%0.3f',T(t)/1000)); % in sec
+%     drawnow
     
     % Downsample to create output matrix
     if rem(t,si) == 0
