@@ -14,7 +14,7 @@ close all
 
 % % % Generate spiral waves
 
-time_units = 10000;                         % 10,000units = 10,000 x 0.1ms/unit = 1000ms = 1sec
+time_units = 10000;                         % 10,000units = 10,000 x 1ms/unit = 10,000ms = 10sec
 ts = fk_breakup(time_units);                % Generate spiral wave breakup
 save orig.mat ts;                           % Save time series of excitation variable 
 make_movie(ts,'orig_movie.avi',[0 1]);      % Save avi movie file

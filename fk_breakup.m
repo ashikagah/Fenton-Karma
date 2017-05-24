@@ -14,7 +14,7 @@
 function ts = fk_breakup(time_units)
 % INPUT:    
 %   time_units   ... Total time units of time series (1ms/unit); 
-%                    e.g. 100,000units = 100,000ms = 100sec
+%                    e.g. 10,000units = 10,000ms = 10sec
 % OUTPUT:
 %   ts           ... 2-D time series of excitation variable V [N x M x time]
 
