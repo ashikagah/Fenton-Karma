@@ -11,7 +11,7 @@
 % Fenton FH and Karma A AD. Vortex dynamics in three-dimensional continuous myocardium with 
 % fiber rotation: Filament instability and fibrillationa. Chaos 8: 20-47, 1998
 
-function ts = 
+function ts = fk_breakup(time_units)
 clear all
 close all
 sympref('HeavisideAtOrigin',1); % Set heaviside(zero) = 1
