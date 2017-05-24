@@ -35,7 +35,7 @@ w = ones(nrows,ncols);                      % w: gate variable for inactivation 
 Cm = 1;                                     % Capacitance (uF_per_cm2)
 V_c = 0.13;                                 % (dimensionless)
 V_v = 0.04;                                 % (dimensionless)
-tau_d = 0.388;                              % Fast_inward_current (ms)
+tau_d = 0.395;                              % Fast_inward_current (ms)
 tau_v1_minus = 9;                           % Fast_inward_current_v_gate (ms)
 tau_v2_minus = 8;                           % Fast_inward_current_v_gate (ms)
 tau_v_plus = 3.33;                          % Fast_inward_current_v_gate (ms)
@@ -56,27 +56,32 @@ si = 10/dt;                                 % Final sampling interval; 10/0.1 = 
                                             % Final sampling rate = 1,000ms/10ms ~ 100Hz
 
 % External current parameters
-IstimAmplitude = -0.2;                      % Stimulation amplitude
-Iex = IstimAmplitude;
+Iex = -0.2;                                 % Stimulation amplitude
 iex = zeros(nrows,ncols);
-iex(end-10:end,:) = IstimAmplitude;
-iex(:,end-10:end) = IstimAmplitude;
+iex(end-10:end,:) = Iex;
+iex(:,end-10:end) = Iex;
 
 % Output matrix
 ts = zeros(ncols,nrows,floor(numel(T)/si));
 
+% Setup image
+V0 = ones(nrows,ncols);
+ih = imagesc(V0); colorbar; caxis([0 1]);
+colormap(lce); axis image off; th=title('');
+set(gcf,'position',[500 600 512 512],'color',[1 1 1]);
+
 % s1-s2 stimulation to induce spiral waves
-Ts = 5620;
+Ts = 3400;
 n1e = 2/dt;                                 % Step at which to end s1
 n2b = Ts;                                   % Step at which to begin s2
 n2e = Ts+2/dt;                              % Step at which to end s2
 
 % Fenton-Karma main
-s=1;
+s = 1;
 
 for t = 1:numel(T)
 
-%%%%%%%%%%%%%%%%%     1-s2 stimulation    %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%    s1-s2 stimulation    %%%%%%%%%%%%%%%%%
 
     if t == n1e; iex=zeros(nrows,ncols); end % s1 ends
     if t == n2b; iex(nrows/2:nrows/2+10,1:end/2)=Iex; end % s2 begins
@@ -113,6 +118,12 @@ for t = 1:numel(T)
     V = V_new; clear V_new;
     u = u_new; clear u_new;
     w = w_new; clear w_new;
+   
+        % Update image and text 
+    % Vm = V_0 + u*(V_fi - V_0); % membrane potential (mV)
+    set(ih,'cdata',V);
+    set(th,'string',sprintf('%0.3f',T(t)/1000)); % in sec
+    drawnow
     
     % Downsample to create output matrix
     if rem(t,si) == 0
