@@ -4,18 +4,18 @@
 %       *  Cardiac Arrhythmia Service                     *
 %       *  Johns Hopkins University School of Medicine    *
 %       *  Baltimore, Maryland, USA                       *
-%       *  5/21/2017                                      *
+%       *  5/24/2017                                      *
 %       ***************************************************
 
-%% Demo script for Rogers-McCulloch model
+%% Demo script for Fenton-Karma model
 
 clear all
 close all
 
 % % % Generate spiral waves
 
-time_units = 20000;                         % 20,000units = 20,000 x 0.63ms/unit = 12,600ms = 12.6sec
-ts = rm_spirals(time_units);   % Generate random stimulations to induce spiral waves
+time_units = 100000;                        % 100,000units = 100,000 x 0.1ms/unit = 10,000ms = 10sec
+ts = fk_breakup(time_units);                % Generate spiral wave breakup
 save orig.mat ts;                           % Save time series of excitation variable 
 make_movie(ts,'orig_movie.avi',[0 1]);      % Save avi movie file
 
