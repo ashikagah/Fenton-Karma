@@ -52,7 +52,7 @@ Model equations are solved using a finite difference method for spatial derivati
 MIT
 
 ## References
-1. Fenton FH and Karma A AD. Vortex dynamics in three-dimensional continuous myocardium with fiber rotation: Filament instability and fibrillationa. Chaos 8: 20-47, 1998
+1. Fenton FH and Karma A. Vortex dynamics in three-dimensional continuous myocardium with fiber rotation: Filament instability and fibrillationa. Chaos 8: 20-47, 1998
 2. Bray MA and Wikswo JP. Use of topological charge to determine filament location and dynamics in a numerical model of scroll wave activity. _IEEE Trans Biomed Eng_ 49: 1086-93, 2002
 3. Hammer P. Spiral waves in monodomain reaction-diffusion model. [MATLAB File Exchange](https://www.mathworks.com/matlabcentral/fileexchange/22492-spiral-waves-in-monodomain-reaction-diffusion-model)
 4. Spottiswoode BS. 2D phase unwrapping algorithms. [MATLAB File Exchange](http://www.mathworks.com/matlabcentral/fileexchange/22504-2d-phase-unwrapping-algorithms?focused=5111677&tab=function)
