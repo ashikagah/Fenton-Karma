@@ -1,15 +1,17 @@
 %       ***************************************************
 %       *  Copyright (C) 2017, Hiroshi Ashikaga, MD, PhD  *
 %       *  hashika1@jhmi.edu                              *
-%       *  Cardiac Arrhythmia Service                     *
+%       *  Carddiac Arrhythmia Service                    *
 %       *  Johns Hopkins University School of Medicine    *
 %       *  Baltimore, Maryland, USA                       *
+%       *  5/24/2017                                      *
 %       ***************************************************
 
-%% Fenton-Karma Model - parameter set 06 - mech 4
+%% Generate spiral wave breakup using Fenton-Karma model of cardiac action potentials
+% Fenton FH and Karma A AD. Vortex dynamics in three-dimensional continuous myocardium with 
+% fiber rotation: Filament instability and fibrillationa. Chaos 8: 20-47, 1998
 
-tic
-
+function ts = 
 clear all
 close all
 sympref('HeavisideAtOrigin',1); % Set heaviside(zero) = 1
