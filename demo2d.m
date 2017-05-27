@@ -7,7 +7,7 @@
 %       *  5/24/2017                                      *
 %       ***************************************************
 
-%% Demo script for Fenton-Karma model
+%% 2-D demo script for Fenton-Karma model
 
 clear all
 close all
@@ -15,7 +15,7 @@ close all
 % % % Generate spiral waves
 
 time_units = 10000;                         % 10,000units = 10,000 x 1ms/unit = 10,000ms = 10sec
-ts = fk_breakup(time_units);                % Generate spiral wave breakup
+ts = fk2d(time_units);                      % Generate spiral wave breakup
 save orig.mat ts -v7.3;                     % Save time series of excitation variable 
 make_movie(ts,'orig_movie.avi',[0 1]);      % Save avi movie file
 
